@@ -68,7 +68,18 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
                     progressBar.visibility = View.GONE
 
-                    adapter.users = response.body()!!
+                    val listUser = response.body()
+
+                    if (response.isSuccessful && listUser != null) {
+                        adapter.users = listUser
+                    } else {
+
+                        val message = getString(R.string.error)
+                        recyclerView.visibility = View.GONE
+
+                        Toast.makeText(this@MainActivity, message, Toast.LENGTH_SHORT)
+                            .show()
+                    }
                 }
             })
     }
