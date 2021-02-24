@@ -3,4 +3,7 @@
     <string name="title">Contatos</string>
     <string name="error">Ocorreu um erro. Tente novamente.</string>
 
+
+    <string name="service_baseUrl">http://careers.picpay.com/tests/mobdev/</string>
+
 </resources>
